@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "music_controller/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "music_controller/wsgi.py"
+        }
+    ]
+}
