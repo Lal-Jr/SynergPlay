@@ -3,9 +3,9 @@ import HomePage from "./HomePage";
 
 const App = () => {
 	return (
-		<>
+		<div className="center">
 			<HomePage />
-		</>
+		</div>
 	);
 };
 

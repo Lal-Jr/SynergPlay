@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const RoomCreatePage = () => {
+const RoomCreatePage = (props) => {
 	const [votesToSkip, setVotesToSkip] = useState("2");
 	const [guestCanPause, setGuestCanPause] = useState(true);
 
@@ -25,9 +25,9 @@ const RoomCreatePage = () => {
 				guest_can_pause: guestCanPause,
 			}),
 		};
-		fetch("/api/home", requestOptions)
+		fetch("/api/create-room", requestOptions)
 			.then((response) => response.json())
-			.then((data) => console.log(data));
+			.then((data) => props.history.push("/room/" + data.code));
 	};
 
 	return (
@@ -92,7 +92,8 @@ const RoomCreatePage = () => {
 						onClick={ButtonPressed}>
 						Create a Room
 					</Button>
-
+				</Grid>
+				<Grid item xs={12} align="center">
 					<Button
 						color="secondary"
 						variant="contained"

@@ -8,16 +8,19 @@ import {
 	Link,
 	Redirect,
 } from "react-router-dom";
+import Room from "./Room";
+import { Grid, Button } from "@material-ui/core";
 
-const HomePage = () => {
+const HomePage = (props) => {
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/">
-					<h1>HomePage</h1>
+					renderHomePage();
 				</Route>
-                <Route path="/join" component={RoomJoinPage} />
-                <Route path="/create" component={RoomCreatePage} />
+				<Route path="/join" component={RoomJoinPage} />
+				<Route path="/create" component={RoomCreatePage} />
+				<Route path="/room/:roomCode" component={Room} />
 			</Switch>
 		</Router>
 	);
